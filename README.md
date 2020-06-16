@@ -1,6 +1,6 @@
 # 16s_microbiome_analysis_workflow
 ### An example to analyze 16s microbiome sequences for taxonomy and functional prediction.
-
+note: some codes can be simplified. There are several repeated steps that can be combined if run this workflow in order.
 1. required package:
   * Python: `scipy`, `pands`, `statsmodels`
   * R: `vegan`, `DADA2`, `ALDEx2`, `biomformat`, `ComplexHeatmap`, `RColorBrewer`
