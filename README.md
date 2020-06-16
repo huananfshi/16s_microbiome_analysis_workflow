@@ -1,6 +1,7 @@
 # 16s_microbiome_analysis_workflow
 ### An example to analyze 16s microbiome sequences for taxonomy and functional prediction.
 note: some codes can be simplified. There are several repeated steps that can be combined if run this workflow in order.
+(i.e. use `asv_taxa.biom` as input to PICRUSt2 might generate stratified gene tables with taxonomic annotations.)
 1. required package:
   * Python: `scipy`, `pands`, `statsmodels`
   * R: `vegan`, `DADA2`, `ALDEx2`, `biomformat`, `ComplexHeatmap`, `RColorBrewer`
@@ -96,7 +97,8 @@ note: some codes can be simplified. There are several repeated steps that can be
     ```
     * statistical analysis for unstatified `PICRUSt2` outputs: `gene_picrust2_stats.ipynb`, `pathway_picrust2_stats.ipynb` (in `jupyter notebook`) and `p_adjustmenet.R` in (`R/RStudio`) (optional, see notes in `gene_picrust2_stats.ipynb`); for stratified contribution of certain genes (i.e. SCFAs): `species_contribution.ipynb` (in `jupyter notebook`) and `p_adjustmenet.R` in (`R/RStudio`)
     * visualize selected enzymes by heatmap `picrust_heatmap.R` (note: the input here are the average values of scaled relative abundance of each enzyme at each time points (used `scale()` function in `R` the process is not included here)).
-3. citations:
+3. future direction: using `Bokeh` or `plotly` for interactive plotting.
+4. citations:
   * `Virtanen, Pauli, Ralf Gommers, Travis E. Oliphant, Matt Haberland, Tyler Reddy, David Cournapeau, Evgeni Burovski et al. "SciPy 1.0: fundamental algorithms for scientific computing in Python." Nature methods 17, no. 3 (2020): 261-272.`
   * `Jeff Reback, Wes McKinney, jbrockmendel, Joris Van den Bossche, Tom Augspurger, Phillip Cloud, gfyoung, et al. “Pandas-dev/pandas: Pandas 1.0.3”. Zenodo, March 18, 2020. doi:10.5281/zenodo.3715232.`
   * `Seabold, Skipper, and Josef Perktold. “statsmodels: Econometric and statistical modeling with python.” Proceedings of the 9th Python in Science Conference. 2010.`
