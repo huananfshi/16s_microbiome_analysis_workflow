@@ -49,7 +49,7 @@
       ```
       biom convert -i asv.biom -o asv.tsv --to-tsv
       ```
-      * group ASVs by taxonomy: [asv_processing.ipynb](asv_processing.ipynb)
+      * group ASVs by identical taxonomic annotation: [asv_processing.ipynb](asv_processing.ipynb)
     * [taxonomy_analysis.R](taxonomy_analysis.R)
   * functional analysis using `PICRUSt2`. make sure `PICRUSt2` and `HUMAnN2` is in the current environment
     ```
