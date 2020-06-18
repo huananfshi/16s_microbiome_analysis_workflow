@@ -41,7 +41,7 @@
     * outputs include a folder of demultiplexed sequences with name `*_R1_001.fastq.gz` and `*_R2_001.fastq.gz`. This folder path will be the input for next step with DADA2.
   * denoising and taxonomy assignment by `dada2` ;
     * we used `SILVA-v138` database for taxonomy assignment. Please check [DADA2 website](https://benjjneb.github.io/dada2/training.html) to download the newest version of SILVA or other database.
-    * [dada2_workflow.R](dada2_workflow.R) see [DADA2 website] (https://benjjneb.github.io/dada2/index.html) for full description
+    * [dada2_workflow.R](dada2_workflow.R) see [DADA2 website](https://benjjneb.github.io/dada2/index.html) for full description
     * outputs include `asv.biom`, `asv.fna` and `asv_genus.tsv` files for taxonomy and functional analysis
   * taxonomy analysis with `ALDEx2` and `vegan`. this workflow used `centered log-ratio` transformation instead of traditional `rarefaction` and `relative abundance` 
     * preprocessing:
