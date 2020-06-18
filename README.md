@@ -1,5 +1,8 @@
 # [16s_microbiome_analysis_workflow](https://github.com/huananfshi/16s_microbiome_analysis_workflow) 
 ### An example to analyze 16s microbiome sequences for taxonomy and functional prediction.
+**This is a tutorial to analyze 16s microbiome data from raw sequences.** (See my [other repository](https://github.com/huananfshi/microbiome_multiomics_analysis_workflow) for analysis of whole genome shotgun sequencing) **Here I used centered log-ratio transformation methods and Aitchison distance instead of tranditional rarefaction cutoff and unifrac/bray-curtis dissimilarity.** (See [Gloor *et al.*](https://www.frontiersin.org/articles/10.3389/fmicb.2017.02224/full) for more information.) 
+**If you are reading this, I assume that you have some basic understanding of using Python, R, and Shell. If you want to know more about packages I used here, please go to their websites. Some codes can be simplified. There are several repeated steps that can be combined if run this workflow in order.**(i.e. use `asv_taxa.biom` as input to PICRUSt2 might generate stratified gene tables with taxonomic annotations.) 
+**Modify these code to best suit for your needs.**
 1. required package:
   * Python: `scipy`, `pands`, `statsmodels`
   * R: `vegan`, `DADA2`, `ALDEx2`, `biomformat`, `ComplexHeatmap`, `RColorBrewer`
@@ -10,8 +13,7 @@
   * Example datasets from `Young versus Aged Microbiomes in Germ-Free Mice: Increased Short-Chain Fatty Acids and Improved Cognitive Performance` (under revision)
   * `.ipynb` files are `Python` code for `Jupyter Notebook`; `.R` files are `R` code for `RStudio`.
   * for `shell` commands, change path to working directory (`cd /path` or input full file path.)
-  * some codes can be simplified. There are several repeated steps that can be combined if run this workflow in order.
-(i.e. use `asv_taxa.biom` as input to PICRUSt2 might generate stratified gene tables with taxonomic annotations.)
+  * 
 3. workflows
   * rename raw sequences files to `forward/reverse/barcodes.fastq.bz2` (optional based on the format of raw files)
   * the following is done in shell. make sure that `qiime2` is in the current working environment
