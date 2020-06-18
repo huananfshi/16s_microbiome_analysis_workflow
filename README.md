@@ -1,4 +1,4 @@
-# [16s_microbiome_analysis_workflow](https://github.com/huananfshi/16s_microbiome_analysis_workflow) 
+# [16s Microbiome Analysis Workflow](https://github.com/huananfshi/16s_microbiome_analysis_workflow) 
 ### An example to analyze 16s microbiome sequences for taxonomy and functional prediction.
 **This is a tutorial to analyze 16s microbiome data from raw sequences.** (See my [other repository](https://github.com/huananfshi/microbiome_multiomics_analysis_workflow) for analysis of whole genome shotgun sequencing) **Here I used centered log-ratio transformation methods and Aitchison distance instead of tranditional rarefaction cutoff and unifrac/bray-curtis dissimilarity.** (See [Gloor *et al.*](https://www.frontiersin.org/articles/10.3389/fmicb.2017.02224/full) for more information.) 
 **If you are reading this, I assume that you have some basic understanding of using Python, R, and Shell. If you want to know more about packages I used here, please go to their websites. Some codes can be simplified. There are several repeated steps that can be combined if run this workflow in order.**(i.e. use `asv_taxa.biom` as input to PICRUSt2 might generate stratified gene tables with taxonomic annotations.) 
@@ -104,6 +104,7 @@
     * visualize selected enzymes by heatmap [picrust_heatmap.R](picrust_heatmap.R) (note: the input here are the average values of scaled relative abundance of each enzyme at each time points (used `scale()` function in `R` the process is not included here)).
 4. future direction: using `Bokeh` or `plotly` for interactive plotting.
 5. citations:
+  * `Gloor, Gregory B., Jean M. Macklaim, Vera Pawlowsky-Glahn, and Juan J. Egozcue. "Microbiome datasets are compositional: and this is not optional." Frontiers in microbiology 8 (2017): 2224.`
   * `Virtanen, Pauli, Ralf Gommers, Travis E. Oliphant, Matt Haberland, Tyler Reddy, David Cournapeau, Evgeni Burovski et al. "SciPy 1.0: fundamental algorithms for scientific computing in Python." Nature methods 17, no. 3 (2020): 261-272.`
   * `Jeff Reback, Wes McKinney, jbrockmendel, Joris Van den Bossche, Tom Augspurger, Phillip Cloud, gfyoung, et al. “Pandas-dev/pandas: Pandas 1.0.3”. Zenodo, March 18, 2020. doi:10.5281/zenodo.3715232.`
   * `Seabold, Skipper, and Josef Perktold. “statsmodels: Econometric and statistical modeling with python.” Proceedings of the 9th Python in Science Conference. 2010.`
