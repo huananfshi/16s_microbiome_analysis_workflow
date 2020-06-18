@@ -48,9 +48,9 @@
   * taxonomy analysis with `ALDEx2` and `vegan`. this workflow used `centered log-ratio` transformation instead of traditional `rarefaction` and `relative abundance` 
     * preprocessing:
       * convert `asv.biom` to `asv.tsv` (in shell)
-      ```
-      biom convert -i asv.biom -o asv.tsv --to-tsv
-      ```
+    ```
+    biom convert -i asv.biom -o asv.tsv --to-tsv
+    ```
       * group ASVs by identical taxonomic annotation: [asv_processing.ipynb](asv_processing.ipynb)
     * [taxonomy_analysis.R](taxonomy_analysis.R)
   * functional analysis using `PICRUSt2`. make sure `PICRUSt2` and `HUMAnN2` is in the current environment
