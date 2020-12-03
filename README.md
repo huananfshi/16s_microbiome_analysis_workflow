@@ -4,7 +4,7 @@
 **If you are reading this, I assume that you have some basic understanding of using Python, R, and Shell. If you want to know more about packages I used here, please go to their websites. Some codes can be simplified. There are several repeated steps that can be combined if run this workflow in order.**(i.e. use `asv_taxa.biom` as input to PICRUSt2 might generate stratified gene tables with taxonomic annotations.) <br /> 
 **Modify these code to best suit for your needs.**
 1. required package:
-  * Python: `scipy`, `pands`, `statsmodels`
+  * Python: `scipy`, `pandas`, `statsmodels`
   * R: `vegan`, `DADA2`, `ALDEx2`, `biomformat`, `ComplexHeatmap`, `RColorBrewer`
   * Commandline tools: `PICRUSt2`, `QIIME2`, `HUMAnN2`,`biom-format`
 2. notes:
