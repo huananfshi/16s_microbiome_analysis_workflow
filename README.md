@@ -10,7 +10,7 @@
 2. notes:
   * the following workflow is designed for paired-end sequencing
   * replace `~/.../` to actual working paths
-  * Example datasets from `Young versus Aged Microbiomes in Germ-Free Mice: Increased Short-Chain Fatty Acids and Improved Cognitive Performance` (under revision)
+  * Example datasets from [`Young versus aged microbiota transplants to germ-free mice: increased short-chain fatty acids and improved cognitive performance. Gut Microbes (2020)`](http://dx.doi.org/10.1080/19490976.2020.1814107)
   * `.ipynb` files are `Python` code for `Jupyter Notebook`; `.R` files are `R` code for `RStudio`.
   * for `shell` commands, change path to working directory (`cd /path` or input full file path.)
   *
