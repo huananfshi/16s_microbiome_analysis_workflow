@@ -1,10 +1,10 @@
-# [A 16s Microbiome Analysis Workflow](https://github.com/huananfshi/16s_microbiome_analysis_workflow) 
+# [A 16s Microbiome Analysis Workflow](https://github.com/huananfshi/16s_microbiome_analysis_workflow)
 ### An example to analyze 16s microbiome sequences for taxonomy and functional prediction.
-**This is a tutorial to analyze 16s microbiome data from raw sequences.** (See my [other repository](https://github.com/huananfshi/microbiome_multiomics_analysis_workflow) for analysis of whole genome shotgun sequencing) **Here I used centered log-ratio transformation methods and Aitchison distance instead of tranditional rarefaction cutoff and unifrac/bray-curtis dissimilarity.** (See [Gloor *et al.*](https://www.frontiersin.org/articles/10.3389/fmicb.2017.02224/full) for more information.)<br /> 
-**If you are reading this, I assume that you have some basic understanding of using Python, R, and Shell. If you want to know more about packages I used here, please go to their websites. Some codes can be simplified. There are several repeated steps that can be combined if run this workflow in order.**(i.e. use `asv_taxa.biom` as input to PICRUSt2 might generate stratified gene tables with taxonomic annotations.) <br /> 
+**This is a tutorial to analyze 16s microbiome data from raw sequences.** (See my [other repository](https://github.com/huananfshi/microbiome_multiomics_analysis_workflow) for analysis of whole genome shotgun sequencing) **Here I used centered log-ratio transformation methods and Aitchison distance instead of tranditional rarefaction cutoff and unifrac/bray-curtis dissimilarity.** (See [Gloor *et al.*](https://www.frontiersin.org/articles/10.3389/fmicb.2017.02224/full) for more information.)<br />
+**If you are reading this, I assume that you have some basic understanding of using Python, R, and Shell. If you want to know more about packages I used here, please go to their websites. Some codes can be simplified. There are several repeated steps that can be combined if run this workflow in order.**(i.e. use `asv_taxa.biom` as input to PICRUSt2 might generate stratified gene tables with taxonomic annotations.) <br />
 **Modify these code to best suit for your needs.**
 1. required package:
-  * Python: `scipy`, `pands`, `statsmodels`
+  * Python: `scipy`, `pandas`, `statsmodels`
   * R: `vegan`, `DADA2`, `ALDEx2`, `biomformat`, `ComplexHeatmap`, `RColorBrewer`
   * Commandline tools: `PICRUSt2`, `QIIME2`, `HUMAnN2`,`biom-format`
 2. notes:
@@ -13,7 +13,7 @@
   * Example datasets from `Young versus Aged Microbiomes in Germ-Free Mice: Increased Short-Chain Fatty Acids and Improved Cognitive Performance` (under revision)
   * `.ipynb` files are `Python` code for `Jupyter Notebook`; `.R` files are `R` code for `RStudio`.
   * for `shell` commands, change path to working directory (`cd /path` or input full file path.)
-  * 
+  *
 3. workflows
   * rename raw sequences files to `forward/reverse/barcodes.fastq.bz2` (optional based on the format of raw files)
   * the following is done in shell. make sure that `qiime2` is in the current working environment
@@ -35,7 +35,7 @@
     --o-per-sample-sequences demux.qza \
     --o-error-correction-details demux-details.qza
     #extracting data for dada2_workflow.R
-    mkdir ~/.../qiime2_data 
+    mkdir ~/.../qiime2_data
     qiime tools extract \
     --input-path demux.qza \
     --output-path ~/.../qiime2_data
@@ -45,7 +45,7 @@
     * we used `SILVA-v138` database for taxonomy assignment. Please check [DADA2 website](https://benjjneb.github.io/dada2/training.html) to download the newest version of SILVA or other database.
     * [dada2_workflow.R](dada2_workflow.R) see [DADA2 website](https://benjjneb.github.io/dada2/index.html) for full description
     * outputs include `asv.biom`, `asv.fna` and `asv_genus.tsv` files for taxonomy and functional analysis
-  * taxonomy analysis with `ALDEx2` and `vegan`. this workflow used `centered log-ratio` transformation instead of traditional `rarefaction` and `relative abundance` 
+  * taxonomy analysis with `ALDEx2` and `vegan`. this workflow used `centered log-ratio` transformation instead of traditional `rarefaction` and `relative abundance`
     * preprocessing:
       * convert `asv.biom` to `asv.tsv` (in shell)
     ```
@@ -63,7 +63,7 @@
     -i otu_all.biom \
     -o ~/.../picrust2_out \
     -p 1 \
-    --stratified \ 
+    --stratified \
     --coverage \  
     --metagenome_contrib #contribution of each ATV
     ```
@@ -100,7 +100,7 @@
     -o pathways_out/pathabun_relab_names.tsv \
     -m METACYC
     ```
-    * statistical analysis for unstatified `PICRUSt2` outputs: [gene_picrust2_stats.ipynb](gene_picrust2_stats.ipynb), [pathway_picrust2_stats.ipynb](pathway_picrust2_stats.ipynb) and [p_adjustmenet.R](p_adjustmenet.R) (optional, see notes in [gene_picrust2_stats.ipynb](gene_picrust2_stats.ipynb)); for stratified contribution of certain genes (i.e. SCFAs): [species_contribution.ipynb](species_contribution.ipynb) and [p_adjustmenet.R](p_adjustmenet.R) 
+    * statistical analysis for unstatified `PICRUSt2` outputs: [gene_picrust2_stats.ipynb](gene_picrust2_stats.ipynb), [pathway_picrust2_stats.ipynb](pathway_picrust2_stats.ipynb) and [p_adjustmenet.R](p_adjustmenet.R) (optional, see notes in [gene_picrust2_stats.ipynb](gene_picrust2_stats.ipynb)); for stratified contribution of certain genes (i.e. SCFAs): [species_contribution.ipynb](species_contribution.ipynb) and [p_adjustmenet.R](p_adjustmenet.R)
     * visualize selected enzymes by heatmap [picrust_heatmap.R](picrust_heatmap.R) (note: the input here are the average values of scaled relative abundance of each enzyme at each time points (used `scale()` function in `R` the process is not included here)).
 4. future direction: using `Bokeh` or `plotly` for interactive plotting.
 5. citations:
