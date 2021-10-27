@@ -36,6 +36,7 @@ dada2_workflow_16s=function(path,site){
     asv_headers[i]=paste(">ASV",i,sep = "_")
   }
   asv_fasta = c(rbind(asv_headers,asv_seqs))
+  str(asv_fasta)
   write(asv_fasta,paste(path,"dada2_output/asv_",site,".fna",sep=""))
   asv_tab = t(seqtab.nochim)
   rownames(asv_tab) = sub(">","",asv_headers)
@@ -60,7 +61,7 @@ dada2_workflow_16s=function(path,site){
   # write_biom(st.biom,"~/Box Sync/EODF_analysis/intermediate_files/16s/dada2_output/otu_all_taxa.biom")
   
   taxa_frame$taxonomy = paste(taxa_frame$Kingdom,taxa_frame$Phylum,taxa_frame$Class,taxa_frame$Order,taxa_frame$Family,taxa_frame$Genus,sep=";")
-  taxa_frame$taxonomy = gsub(";NA",";unclassified",taxa_frame$taxonomy)
+  taxa_frame$taxonomy = gsub("(;NA)+",";unclassified",taxa_frame$taxonomy)
   rownames(taxa_frame)=gsub(">","",rownames(taxa_frame))
   write.csv(taxa_frame,paste(path,"dada2_output/asv_genus_",site,".csv",sep=""),quote=F,row.names = T) #write asv_genus list
   return_list = list("seqtabNoC" = seqtab.nochim, "taxTab"= taxa, "asv_tab"= asv_tab)
